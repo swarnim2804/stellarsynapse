@@ -1,0 +1,81 @@
+.quiz-section {
+  margin-top: 3rem;
+  background: rgba(0, 0, 41, 0.6);
+  padding: 1.5rem;
+  border-radius: 10px;
+  color: white;
+  text-shadow:0 0 10px #107fa8;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar div {
+  height: 100%;
+  background-color: #61a5c2;
+  transition: width 0.5s ease;
+}
+
+.quiz-question p {
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+}
+
+.option-btn {
+  display: block;
+  background-color: #001845;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin: 0.4rem 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background 0.3s;
+}
+
+.option-btn:hover {
+  background-color: #468faf;
+  color: black;
+}
+
+.option-btn.selected {
+  background-color: #001845;
+}
+
+.feedback {
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.score-screen {
+  text-align: center;
+}
+
+.score-screen button {
+  margin-top: 1rem;
+  padding: 8px 14px;
+  background-color: #001845;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+

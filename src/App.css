@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  position: relative;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.moonSurface {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  border-top-left-radius: 50% 40px;
+  border-top-right-radius: 50% 40px;
+  z-index: 2;
+}
+
+.ufo {
+  position: absolute;
+  top: -200px; /* Start above screen */
+  left: 50%;
+  width: 250px;
+  transform: translateX(-50%);
+  animation: ufoDropDown 3s forwards;
+  z-index: 3;
+}
+
+@keyframes ufoDropDown {
+  0% {
+    top: -200px;
+  }
+  100% {
+    top: 22%; /* Stop a bit higher now */
+  }
+}
+
+
+.alien {
+  position: absolute;
+  bottom: 180px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  opacity: 0;
+  animation: alienPopUp 1s 3.2s forwards;
+  z-index: 4;
+}
+
+@keyframes alienPopUp {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+.dialogue {
+  position: absolute;
+  font-family:monospace;  
+  bottom: 27%;
+  left: 60%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;                 /* Makes text bolder */
+  color: #f7f8f8;                    /* Bright neon cyan */
+  text-shadow: 0 0 10px #143ccd,     /* Glow effect */
+               0 0 20px #00ffff,
+               0 0 30px #1728e5;
+  opacity: 0;
+  animation: fadeIn 1s 6.6s forwards;
+  z-index: 5;
+}
+
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.exploreBtn {
+  margin-top: 15px;
+  padding: 15px 35px;
+  background: #59a5d8;
+  font-family: monospace;
+  border: none;
+  border-radius: 30px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.exploreBtn:hover {
+  background: #9bb1ff;
+}
+.videoBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.3;
+}
+.ufo {
+  position: absolute;
+  top: -200px; /* Start above screen */
+  left: 50%;
+  width: 280px;
+  transform: translateX(-50%);
+  animation: 
+  ufoDropDown 3s forwards,
+  ufoShrinkFade 2s 4s forwards; /* Triggers after drop */
+  z-index: 2;
+}
+
+@keyframes ufoDropDown {
+  0% {
+    top: -200px;
+  }
+  100% {
+    top: 30%;
+  }
+}
+
+.alien {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  width: 250px;
+  opacity: 0;
+  animation: alienPopUp 1s 3.2s forwards, alienSlideLeft 1.2s 5.2s forwards;
+  z-index: 3;
+}
+
+@keyframes alienPopUp {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px) scale(1);
+  }
+}
+
+@keyframes alienSlideLeft {
+  0% {
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+  }
+  100% {
+    left: 30%;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+.videoBackground {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;       /* Fixed width instead of % */
+  height: 200px;      /* Fixed height for more control */
+  object-fit:fill;
+  z-index: 0;
+  opacity: 0.4;
+  pointer-events: none;
+  border-radius: 10px; /* optional: gives a nice soft look */
+}
+@keyframes ufoShrinkFade {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scale(0.2);
+    opacity: 0;
+  }
+}
+.ufo::before,
+.ufo::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  width: 30px;
+  height: 30px;
+  background: rgba(251, 251, 251, 0.25);
+  border-radius: 50%;
+  filter: blur(8px);
+  opacity: 0;
+  z-index: 1;
+  animation-name: smokeRise;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.ufo::before {
+  left: 45%;
+  animation-delay: 2.8s;
+  animation-play-state: running;
+}
+
+.ufo::after {
+  left: 55%;
+  animation-delay: 3s;
+  animation-play-state: running;
+}
+
+@keyframes smokeRise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-40px) scale(1.6);
+    opacity: 0;
+  }
+}
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  pointer-events: none;
+}
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+

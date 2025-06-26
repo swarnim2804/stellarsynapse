@@ -1,0 +1,160 @@
+.hall-of-fame-container {
+  background: #240046;
+  color: white;
+  padding: 2rem;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.25;
+}
+
+.hero-banner {
+  text-align: center;
+  margin-bottom: 2rem;
+  z-index: 2;
+  position: relative;
+}
+
+.hero-banner h1 {
+  text-shadow: 0 0 10px #8d7706, 0 0 20px #ffe150, 0 0 30px #ffe150;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.filters {
+  text-align: center;
+  margin-bottom: 1rem;
+  z-index: 2;
+  position: relative;
+}
+
+.filters button {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0.5rem;
+  padding: 8px 16px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.filters button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.filters button.active {
+  background-color: #f18701;
+  color: #000000;
+  font-weight: bold;
+}
+
+.legend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: stretch;
+  z-index: 2;
+  position: relative;
+}
+
+.legend-card {
+  background: rgba(180, 131, 131, 0.05);
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  backdrop-filter: blur(4px);
+  height: 250px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.legend-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #ffffff;
+}
+
+.legend-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  border: 2px solid white;
+}
+
+.legend-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 20, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background: #f18701;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  color: black;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.modal-content img {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 2px solid white;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  background: transparent;
+  border: none;
+}
+
+@media screen and (max-width: 768px) {
+  .legend-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .legend-card {
+    height: 220px;
+  }
+
+  .legend-card img {
+    width: 80px;
+    height: 80px;
+  }
+}

@@ -1,0 +1,46 @@
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  background: transparent;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+.carousel-track {
+  display: flex;
+  margin-top: 1rem;
+  animation: scroll 30s linear infinite;
+  width: max-content;
+}
+
+.moon-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 30px;
+  color: #b9faf8;
+  font-family: monospace;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.moon-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #2e64fe;
+  transition: transform 0.3s ease;
+}
+
+.moon-icon:hover {
+  transform: scale(1.2);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
