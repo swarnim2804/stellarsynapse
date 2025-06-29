@@ -17,6 +17,7 @@ function Navbar() {
         <li><Link to="/mars">Mars</Link></li>
         <li><Link to="/hall-of-fame">Hall of Fame</Link></li>
         <li><Link to="/game">Game</Link></li>
+        <li><Link to="/zodiac">Zodiac</Link></li> {/* 🆕 New link here */}
       </ul>
     </nav>
   );

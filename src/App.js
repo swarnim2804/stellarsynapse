@@ -7,6 +7,8 @@ import './App.css'; // Import your main CSS file
 import Game from './components/game';
 import Mars from './components/mars'; // Import the Mars component
 import StellarBot from './components/stellarbot';
+import ZodiacExplorer from './components/ZodiacExplorer';
+
  // adjust the path as per your project
 
 
@@ -21,6 +23,8 @@ function App() {
           <Route path="/game" element={<Game />} />
           <Route path="/Mars" element={<Mars />} />
           <Route path="/stellarbot" element={<StellarBot />} />
+          <Route path="/zodiac" element={<ZodiacExplorer />} />
+
 
        
        
