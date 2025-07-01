@@ -1,0 +1,189 @@
+.universe-container {
+  width: 100%;
+  padding: 1.5rem;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+  position: relative;
+  transition: transform 1s;
+}
+
+.flip-universe {
+  transform: scaleX(-1);
+  animation: universeFlash 1s ease-in-out;
+}
+
+@keyframes universeFlash {
+  0% {
+    filter: brightness(1.5) contrast(1.2);
+  }
+  50% {
+    filter: brightness(0.5) contrast(0.8);
+  }
+  100% {
+    filter: brightness(1) contrast(1);
+  }
+}
+
+.lottie-left {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: 65%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  animation: rotateLeft 20s linear infinite;
+  opacity: 1;
+}
+
+.lottie-right {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: 65%;
+  right: 35%;
+  transform: translate(50%, -50%);
+  z-index: 10;
+  animation: rotateRight 20s linear infinite;
+}
+
+@keyframes rotateLeft {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@keyframes rotateRight {
+  from {
+    transform: translate(50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(50%, -50%) rotate(360deg);
+  }
+}
+
+.text-overlay {
+  position: absolute;
+  top: 13%;
+  width: 100%;
+  text-align: center;
+  color: #00ffff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  z-index: 20;
+  animation: fadeIn2 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.text-overlay p {
+  margin-top: 20px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.text-overlay input {
+  background: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  border: 1px solid #00ffff;
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  outline: none;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 0 10px #00ffff44;
+}
+
+.text-overlay button {
+ margin: 10px auto;
+  display: block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #00ffff;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.text-overlay button:hover {
+  background: #00ffcc;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #00ffff;
+}
+
+.identity-card {
+  margin-top: 20px;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: rgba(0, 255, 255, 0.08);
+  border: 1px solid #00ffff;
+  border-radius: 12px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  animation: flicker 2s infinite;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px #00ffff44;
+}
+
+.identity-card h2 {
+  color: #00ffff;
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.identity-card p {
+  margin-bottom: 10px;
+  animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.reversed-name {
+  color: #ff6ec7;
+  font-weight: bold;
+  animation: fadeIn 1.5s ease-in-out;
+  text-shadow: 0 0 8px #ff6ec7;
+}
+
+.alter-ego {
+  color: #00ff99;
+  font-style: italic;
+  animation: glitch-flicker 1.5s infinite alternate;
+}
+
+@keyframes glitch-flicker {
+  0% { text-shadow: 0 0 5px #00ff99; }
+  100% { text-shadow: 2px 2px #00ff99, -2px -2px #ff00ff; }
+}

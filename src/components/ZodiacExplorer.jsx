@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import zodiacData from '../data/zodiacData';
 import './ZodiacExplorer.css';
+import Navbar from './Navbar';
 
 const ZodiacExplorer = () => {
   const [dob, setDob] = useState('');
@@ -39,6 +40,7 @@ const ZodiacExplorer = () => {
 
   return (
     <div className="zodiac-explorer" style={backgroundStyle}>
+      <Navbar />
       <div className="zodiac-content">
       <h1 className="zodiac-heading">🔭 Zodiacverse</h1>
         <p>Enter your date of birth to discover your cosmic sign:</p>

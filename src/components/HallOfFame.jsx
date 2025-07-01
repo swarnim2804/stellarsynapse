@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import legends from '../data/legendsData';
 import starsBg from '../assets/stars-bg2.mp4';
-
+import Navbar from './Navbar';
 import LegendCard from './LegendCard';
 import LegendModal from './LegendModal';
 import './HallOfFame.css';
@@ -18,6 +18,7 @@ const HallOfFame = () => {
 
   return (
     <div className="hall-of-fame-container">
+       <Navbar />
       <video autoPlay loop muted className="video-bg">
         <source src={starsBg} type="video/mp4" />
         Your browser does not support the video tag.

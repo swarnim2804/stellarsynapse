@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Player } from '@lottiefiles/react-lottie-player';
 import robotAnimation from '../assets/Animation - 1751051228254.json';
 import starsVideo from '../assets/stars2.mp4'; // Make sure path is right
+import Navbar from './Navbar';
 
 const StellarBot = () => {
   const [input, setInput] = useState('');
@@ -42,7 +43,8 @@ const StellarBot = () => {
   };
 
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden',padding: '1.5rem', }}>
+      <Navbar />
       {/* 🔹 Video Background */}
       <video
         autoPlay

@@ -1,7 +1,8 @@
+// src/components/Game.jsx
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import gameBg from '../assets/gamebg.jpeg';
-
+import Navbar from './Navbar';
 
 const Game = () => {
   const gameRef = useRef(null);
@@ -38,9 +39,31 @@ const Game = () => {
           y: a.y + 4,
           angle: a.angle + 4,
         }));
-        updated.forEach((a) => {
-          if (a.y >= 580 && Math.abs(a.x - rocketX) < 30) setGameOver(true);
-        });
+      updated.forEach((a) => {
+  const rocketBox = {
+    x: rocketX - 20,
+    y: 600, // rocket bottom area
+    width: 40,
+    height: 40,
+  };
+
+  const asteroidBox = {
+    x: a.x,
+    y: a.y,
+    width: 30,
+    height: 30,
+  };
+
+  const isColliding =
+    rocketBox.x < asteroidBox.x + asteroidBox.width &&
+    rocketBox.x + rocketBox.width > asteroidBox.x &&
+    rocketBox.y < asteroidBox.y + asteroidBox.height &&
+    rocketBox.y + rocketBox.height > asteroidBox.y;
+
+  if (isColliding) setGameOver(true);
+});
+
+
         return updated.filter((a) => a.y < 640);
       });
       setScore((s) => s + 1);
@@ -58,21 +81,23 @@ const Game = () => {
   };
 
   const styles = {
-    container: {
-      position: 'relative',
+    page: {
       width: '100%',
       height: '100vh',
+      padding: '1.5rem',
       backgroundImage: `url(${gameBg})`,
-backgroundSize: 'cover',
-backgroundPosition: 'center',
-
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      position: 'relative',
+      overflow: 'hidden',
+    },
+    container: {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      height: 'calc(100vh - 60px)', // Adjust for navbar height
       fontFamily: "'Orbitron', sans-serif",
       color: 'white',
-      zIndex: 1,
-      overflow: 'hidden',
     },
     card: {
       position: 'relative',
@@ -160,31 +185,33 @@ backgroundPosition: 'center',
   };
 
   return (
-    <div style={styles.container} ref={gameRef}>
-      <div style={styles.card}>
-        <div style={styles.rocket}>
-          🚀
-          <div style={styles.flame}>🔥</div>
-        </div>
-
-        {asteroids.map((a) => (
-          <div key={a.id} style={styles.asteroid(a.x, a.y, a.angle)}>☄️</div>
-        ))}
-
-        <div style={styles.score}>Score: {score}</div>
-
-        {gameOver && (
-          <div style={styles.gameOver}>
-            <p style={{ fontSize: '1.5rem', margin: 0 }}>💥 Game Over!</p>
-            <p style={{ fontSize: '1rem', margin: '10px 0' }}>Your Score: {score}</p>
-            <button style={styles.button} onClick={restartGame}>🔁 Play Again</button>
+    <div style={styles.page}>
+      <Navbar />
+      <div style={styles.container} ref={gameRef}>
+        <div style={styles.card}>
+          <div style={styles.rocket}>
+            🚀
+            <div style={styles.flame}>🔥</div>
           </div>
-        )}
 
-        <button style={styles.backButton} onClick={() => navigate('/')}>🏠 Back</button>
+          {asteroids.map((a) => (
+            <div key={a.id} style={styles.asteroid(a.x, a.y, a.angle)}>☄️</div>
+          ))}
+
+          <div style={styles.score}>Score: {score}</div>
+
+          {gameOver && (
+            <div style={styles.gameOver}>
+              <p style={{ fontSize: '1.5rem', margin: 0 }}>💥 Game Over!</p>
+              <p style={{ fontSize: '1rem', margin: '10px 0' }}>Your Score: {score}</p>
+              <button style={styles.button} onClick={restartGame}>🔁 Play Again</button>
+            </div>
+          )}
+
+          <button style={styles.backButton} onClick={() => navigate('/')}>🏠 Back</button>
+        </div>
       </div>
 
-      {/* Add animation keyframes */}
       <style>{`
         @keyframes flicker {
           0%, 100% { opacity: 1; transform: scale(1); }

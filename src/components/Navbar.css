@@ -42,7 +42,7 @@
   text-shadow: 0 0 10px #500251, 0 0 20px #5e5df0;
 }
 .logo-img {
-  height: 120px; /* reduced from 50px */
+  height: 60px; /* reduced from 50px */
   width: auto;
   cursor: pointer;
   margin-right: 1rem;

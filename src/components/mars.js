@@ -63,7 +63,8 @@ const Mars = () => {
   };
 
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden',padding: '1.5rem' }}>
+      <Navbar />
       {/* Background Video */}
       <video
         src={marsBg}
