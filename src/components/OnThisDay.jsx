@@ -6,7 +6,8 @@ import Navbar from './Navbar';
 const spaceKeywords = [
   'NASA', 'space', 'astronomy', 'astronaut', 'Apollo', 'rocket', 'satellite',
   'Hubble', 'planet', 'Mars', 'Venus', 'Earth', 'moon', 'cosmos', 'launch',
-  'telescope', 'ISS', 'shuttle', 'probe', 'mission', 'solar', 'cosmonaut', 'orbit'
+  'telescope', 'spacecraft', 'shuttle', 'probe', 'mission', 'solar', 'cosmonaut', 'orbit', 'galaxy', 'universe', 'black hole', 'supernova', 'nebula', 'exoplanet',
+  'International Space Station', 'Voyager','SpaceX', 'Curiosity', 'James Webb', 'Lunar', 'Mars Rover', 'Blue Origin', 'ESA', 'Roscosmos', 'JAXA', 'ISRO', 'Space Shuttle', 'Apollo Program', 'Gemini Program' , 'Starlink mission'
 ];
 
 const OnThisDay = () => {
